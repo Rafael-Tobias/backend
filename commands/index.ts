@@ -13,7 +13,7 @@ import Application from '@ioc:Adonis/Core/Application'
 | Couple of things to note:
 |
 | 1. The file path must be relative from the project root and not this directory.
-| 2. We must ignore this file to avoid getting into an infinite loop
+| 2. We must ignore this file to avoid getting into an infinite loop rafael delicioso
 |
 */
 export default listDirectoryFiles(__dirname, Application.appRoot, ['./commands/index'])
