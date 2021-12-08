@@ -1,4 +1,3 @@
-import { Response } from '@adonisjs/http-server/build/standalone'
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Pag from 'App/Models/Pag'
 import StorePagValidator from 'App/Validators/StorePagValidator'
