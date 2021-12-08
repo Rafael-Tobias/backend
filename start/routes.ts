@@ -20,8 +20,10 @@
 
 import Route from '@ioc:Adonis/Core/Route'
 
-Route.get('/', async () => {
-  return { hello: "world web 1"}
-})
 
 Route.post("/register", "AuthController.register")
+Route.post("/login", "AuthController.login")
+Route.get("/pags","PagsController.index")
+Route.group(() => {
+  Route.resource("pags","PagsController").apiOnly().except(['index'])
+}).middleware("auth")

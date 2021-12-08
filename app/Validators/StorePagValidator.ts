@@ -1,9 +1,8 @@
-import { schema, rules } from '@ioc:Adonis/Core/Validator'
+import { schema } from '@ioc:Adonis/Core/Validator'
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
-export default class RegisterUserValidator {
-  constructor(protected ctx: HttpContextContract) {
-  }
+export default class StorePagValidator {
+  constructor(protected ctx: HttpContextContract) {}
 
   /*
    * Define schema to validate the "shape", "type", "formatting" and "integrity" of data.
@@ -25,13 +24,9 @@ export default class RegisterUserValidator {
    *    ```
    */
   public schema = schema.create({
-    email: schema.string({}, [
-      rules.email(),
-      rules.unique({ table: 'users', column: 'email' })
-    ]),
-    password: schema.string({}, [
-      rules.minLength(4)
-    ])
+    num_pag: schema.number(),
+    inserir_imagem: schema.string(),
+    inserir_texto: schema.string()
   })
 
   /**
@@ -46,8 +41,6 @@ export default class RegisterUserValidator {
    *
    */
   public messages = {
-    required: "O {{field}} é obrigatório para se registrar!",
-    'email.unique': "E-mail já cadastrado!",
-    'minLength': "Tamanho de senha inválida"
+    required: "O {{field}} é obrigatório!!"
   }
 }
